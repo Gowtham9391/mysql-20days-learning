@@ -1,0 +1,244 @@
+Q1. What is the purpose of the UNIQUE constraint in MySQL?
+
+A) To allow duplicate values
+B) To prevent duplicate values in a column or combination of columns (CORRECT)
+C) To prevent NULL values
+D) To create a relationship between tables  
+
+Q2. Which constraint ensures that all non-NULL values in a column are unique?
+
+A) DEFAULT
+B) CHECK
+C) UNIQUE (CORRECT)
+D) NOT NULL  
+
+Q3. Can a UNIQUE column contain NULL values in MySQL?
+
+A) No, never
+B) Yes, multiple NULL values are generally allowed (CORRECT)
+C) Only one NULL value is allowed
+D) Only if it is an integer column  
+
+Q4. Which SQL statement correctly defines an email column with a UNIQUE constraint?
+
+A) email VARCHAR(100) DISTINCT
+B) email VARCHAR(100) UNIQUE (CORRECT)
+C) email VARCHAR(100) NOT DUPLICATE
+D) email VARCHAR(100) PRIMARY  
+
+Q5. What is the purpose of the NOT NULL constraint?
+
+A) To prevent duplicate values
+B) To prevent NULL values (CORRECT)
+C) To insert default values automatically
+D) To establish a relationship between tables  
+
+Q6. Which statement correctly defines a NOT NULL column?
+
+A) name VARCHAR(50) NULL
+B) name VARCHAR(50) NOT NULL (CORRECT)
+C) name VARCHAR(50) UNIQUE
+D) name VARCHAR(50) DEFAULT NULL  
+
+Q7. What happens when you try to insert NULL into a NOT NULL column?
+
+A) MySQL always accepts the value
+B) MySQL automatically converts NULL to zero
+C) MySQL rejects the statement under normal strict-mode conditions (CORRECT)
+D) MySQL deletes the table  
+
+Q8. Which of the following is a valid value for a NOT NULL VARCHAR column?
+
+A) NULL
+B) ' '  (a space) (CORRECT)
+C) No value when no default exists
+D) None of the above  
+ 
+Q9. What is the main purpose of a PRIMARY KEY?
+
+A) To allow duplicate records
+B) To uniquely identify each row in a table (CORRECT)
+C) To store only text values
+D) To assign default values  
+
+Q10. How many PRIMARY KEY constraints can a table have?
+
+A) Only one (CORRECT)
+B) Two
+C) Three
+D) Unlimited  
+
+Q11. Can a PRIMARY KEY column contain NULL values?
+
+A) Yes
+B) No (CORRECT)
+C) Only one NULL value
+D) Only in VARCHAR columns  
+
+Q12. Which SQL statement correctly defines student_id as a primary key?
+
+A) student_id INT UNIQUE
+B) student_id INT NOT NULL
+C) student_id INT PRIMARY KEY (CORRECT)
+D) student_id INT DEFAULT 1  
+
+Q13. Which of the following is true about a PRIMARY KEY?
+
+A) It allows duplicate values
+B) It allows NULL values
+C) It combines uniqueness and non-NULL requirements (CORRECT)
+D) It is used only for foreign key columns  
+
+Q14. What is the primary purpose of a FOREIGN KEY?
+
+A) To sort table records
+B) To establish and enforce a relationship between tables (CORRECT)
+C) To prevent all duplicate values in a table
+D) To assign automatic values  
+
+Q15. A FOREIGN KEY usually references which type of column in another table?
+
+A) Any column, regardless of its properties
+B) A column or set of columns covered by a suitable key, such as a PRIMARY KEY or UNIQUE key (CORRECT)
+C) Only a VARCHAR column
+D) Only a DEFAULT column  
+
+Q16. Which table generally contains the FOREIGN KEY?
+
+A) Parent table
+B) Child table (CORRECT)
+C) Both tables must contain it
+D) Neither table
+
+Q17. Consider the following tables:
+CREATE TABLE department (
+    dept_id INT PRIMARY KEY,
+    dept_name VARCHAR(50)
+);
+
+CREATE TABLE employee (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    dept_id INT,
+    FOREIGN KEY (dept_id)
+        REFERENCES department(dept_id)
+);
+
+Which column is the FOREIGN KEY?
+
+A) employee.emp_id
+B) department.dept_id
+C) employee.dept_id (CORRECT)
+D) department.dept_name  
+
+Q18. What happens if you insert a FOREIGN KEY value that does not exist in the referenced table?
+
+A) MySQL always accepts it
+B) MySQL rejects the insert when foreign key checking is enabled (CORRECT)
+C) MySQL automatically creates the parent record
+D) MySQL changes the value to NULL automatically  
+ 
+Q19. What is a COMPOSITE KEY?
+
+A) A key consisting of two or more columns (CORRECT)
+B) A key containing only one column
+C) A key that allows duplicate combinations
+D) A key used only for sorting  
+
+Q20. Which statement correctly defines a composite primary key using student_id and course_id?
+
+A)
+PRIMARY KEY (student_id)
+
+B)
+PRIMARY KEY (course_id)
+
+C)
+PRIMARY KEY (student_id, course_id) (CORRECT)
+
+D)
+UNIQUE (student_id)
+
+Q21. In a composite primary key, which values must be unique?
+
+A) Each column's values must be individually unique
+B) The combination of values across the key columns must be unique (CORRECT)
+C) Only the first column's values must be unique
+D) Only the last column's values must be unique  
+
+Q22. Which table is a common example of using a composite primary key?
+
+A) A table with a single unique employee ID
+B) An enrollment table containing student_id and course_id (CORRECT)
+C) A table containing only product names
+D) A table containing only department names  
+Section 6: DEFAULT Constraint
+Q23. What is the purpose of the DEFAULT constraint?
+
+A) To prevent duplicate values
+B) To provide a value when an insert omits the column or specifies the DEFAULT keyword (CORRECT)
+C) To prevent NULL values in every case
+D) To create relationships between tables  
+
+Q24. Which statement correctly defines a column with a default value of 'India'?
+
+A) country VARCHAR(50) DEFAULT 'India' (CORRECT)
+B) country VARCHAR(50) UNIQUE 'India'
+C) country VARCHAR(50) NOT NULL 'India'
+D) country VARCHAR(50) CHECK 'India'  
+
+Q25. Consider the following table:
+CREATE TABLE employee (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    city VARCHAR(50) DEFAULT 'Hyderabad'
+);
+
+What value will be assigned to city if an INSERT statement omits the city column?
+
+A) NULL in every case
+B) Hyderabad (CORRECT)
+C) An empty string
+D) MySQL generates a random city  
+
+Q26. If a column has a DEFAULT value, can an INSERT statement explicitly provide another value?
+
+A) No
+B) Yes (CORRECT)
+C) Only if the column is an integer
+D) Only if the column is a primary key  
+Section 7: CHECK Constraint
+Q27. What is the purpose of a CHECK constraint?
+
+A) To validate data against a specified condition (CORRECT)
+B) To create a primary key automatically
+C) To prevent all duplicate values
+D) To establish a relationship between tables  
+
+Q28. Which statement correctly ensures that an employee's age is at least 18?
+
+A) age INT UNIQUE
+B) age INT DEFAULT 18
+C) age INT CHECK (age >= 18) (CORRECT)
+D) age INT PRIMARY KEY  
+
+Q29. Consider the following table:
+CREATE TABLE employee (
+    emp_id INT PRIMARY KEY,
+    salary DECIMAL(10,2),
+    CHECK (salary > 0)
+);
+
+Which salary value satisfies the CHECK condition?
+
+A) -5000
+B) 0
+C) 25000 (CORRECT)
+D) -1  
+
+Q30. Which constraint can ensure that a student's marks are between 0 and 100, inclusive?
+
+A) CHECK (marks >= 0 AND marks <= 100) (CORRECT)
+B) UNIQUE (marks)
+C) DEFAULT 100
+D) NOT NULL (marks)
